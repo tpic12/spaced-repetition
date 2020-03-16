@@ -1,0 +1,18 @@
+.card-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.card {
+  margin: 5px 10px;
+  padding: 5px;
+  width: 200px;
+  border: 1px solid black;
+}
+
+.start-learning-button {
+  margin: 15px 0;
+  padding: 10px 20px;
+}
