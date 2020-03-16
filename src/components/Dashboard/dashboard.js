@@ -13,11 +13,14 @@ class Dashboard extends Component {
   }
 
   componentDidMount = () => {
-    // LangService.getLang()
-    //   .then(this.context.setLang())
-    //   .then(this.context.setWords())
-    //   .catch(this.context.setError)
-    console.log(LangService.getLang())
+    LangService.getLang()
+      .then(res => {
+        console.log(res.language)
+        this.context.setLang(res.language)
+        this.context.setWords(res.words)
+      })
+      .catch(this.context.setError)
+    // console.log(LangService.getLang())
   }
 
   render() {

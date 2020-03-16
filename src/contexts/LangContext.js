@@ -61,10 +61,11 @@ export class LangProvider extends Component {
   }
 
   setLang = lang => {
-    this.setState({ language: lang })
+    this.setState({ lang })
   }
 
   setWords = words => {
+    console.log('setting words', words.length)
     this.setState({ words })
   }
 
