@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 //import TokenService from '../../services/token-service'
 import LangContext from '../../contexts/LangContext'
 import LangService from '../../services/lang-service'
 import Card from '../Card/card'
-import Button from '../Button/Button'
 import './dashboard.css'
 
 class Dashboard extends Component {
@@ -18,7 +17,7 @@ class Dashboard extends Component {
   componentDidMount = () => {
     LangService.getLang()
       .then(res => {
-        console.log(res.language)
+        //console.log(res.language)
         this.context.setLang(res.language)
         this.context.setWords(res.words)
         this.setState({loaded: true})
@@ -53,7 +52,7 @@ class Dashboard extends Component {
       {/* <Button className="start-learning-button" type='button'>
               Start Learning
             </Button> */}
-      <a href='/learn'>Start practicing</a>
+      <Link to='/learn'>Start practicing</Link>
     </>
     );
   }

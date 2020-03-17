@@ -24,31 +24,7 @@ export class LangProvider extends Component {
       error: null
     }
 
-    const jwtPayload = TokenService.parseAuthToken()
-
-    if (jwtPayload)
-      state.user = {
-        id: jwtPayload.user_id,
-        name: jwtPayload.name,
-        username: jwtPayload.sub,
-      }
-
     this.state = state;
-    IdleService.setIdleCallback(this.logoutBecauseIdle)
-  }
-
-  componentDidMount() {
-    if (TokenService.hasAuthToken()) {
-      IdleService.regiserIdleTimerResets()
-      TokenService.queueCallbackBeforeExpiry(() => {
-        this.fetchRefreshToken()
-      })
-    }
-  }
-
-  componentWillUnmount() {
-    IdleService.unRegisterIdleResets()
-    TokenService.clearCallbackBeforeExpiry()
   }
 
   setError = error => {
