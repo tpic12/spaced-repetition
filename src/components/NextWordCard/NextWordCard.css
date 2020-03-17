@@ -1,0 +1,13 @@
+.submit-answer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+.submit-answer *{
+    
+margin-bottom:20px;
+}
