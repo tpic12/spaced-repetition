@@ -18,7 +18,7 @@ class LearningPage extends Component {
   componentDidMount() {
     LangService.getNextWord()
       .then(res => {
-        console.log(res)
+        //console.log(res)
         this.setState({currentWord: res})
         this.setState({loaded: true})
       })

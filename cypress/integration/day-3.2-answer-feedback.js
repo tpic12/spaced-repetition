@@ -85,7 +85,7 @@ describe(`User story: Answer feedback`, function() {
         const [languageHeadFixture, incorrectFixture] = fixtures
 
         cy.get('main').within($main => {
-          cy.get('.DisplayScore p')
+          cy.get('.displayScore p')
             .should(
               'have.text',
               `Your total score is: ${incorrectFixture.totalScore}`,
