@@ -9,16 +9,23 @@ import React, { Component } from 'react'
 
 class Results extends Component {
   state={
-    isCorrect:this.props.word.isCorrect
+    isCorrect:this.props.answer.isCorrect
   }
 
+
   render() {
+    const {answer, currentWord, guess} = this.props
     return (
+      <>
     <section className="displayScore">
-    <h2>{this.state.isCorrect ===false &&`Good try, but not quite right :( `}</h2>
-    <p>{this.state.isCorrect ===false && `The correct translation for * was * and you chose *!`}</p>
+      <h2>{this.state.isCorrect ===false?`Good try, but not quite right :(`:`You were correct! :D`}</h2>
+      <p className='displaysTotal'>{`Your total score is: ${answer.totalScore}`}</p>
       </section>
-    
+      <section className='DisplayFeedback' >
+      <p>{`The correct translation for ${currentWord.nextWord} was ${answer.answer} and you chose ${guess}!`}</p>
+      <button type='button' onClick={this.props.handleNextWord}>Try another word!</button>
+    </section>
+    </>
     
     )
   }

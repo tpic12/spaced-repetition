@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 //import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import LangContext from '../../contexts/LangContext'
-//import LangService from '../../services/lang-service'
+import LangService from '../../services/lang-service'
 import config from '../../config'
 import './NextWordCard.css'
 import Results from '../Results/Results'
@@ -12,7 +12,9 @@ class nextWordCard extends Component {
    state={
       word:this.props.word,
       isCorrect:null,
-      
+      guessed: false,
+      answer: null,
+      guess: null
     }
   
   static contextType = LangContext;
@@ -27,6 +29,9 @@ class nextWordCard extends Component {
   handleSubmitAnswer = event=>{
 event.preventDefault();
 const guess= event.target.answer.value
+this.setState({
+  guess
+})
 console.log("this is the guess",guess)
 
 fetch(`${config.API_ENDPOINT}/language/guess`,{
@@ -43,12 +48,12 @@ fetch(`${config.API_ENDPOINT}/language/guess`,{
 .then(res=>res.json())
 .then(data=>{
   this.setState({
-     word:data
-
+    answer:data,
+    guessed: true
   })
-}
- // console.log("is correct?",data)
-  )
+
+})
+ // console.log("is correct?",data))
 
 // .then(data=>{
 //   console.log("this is response data", data)
@@ -59,13 +64,21 @@ fetch(`${config.API_ENDPOINT}/language/guess`,{
 //     word:data
 //   })
 // })
-
-
- 
+}
+handleNextWord = (event) => {
+  event.preventDefault();
+  //call get to /head and reset state, also change guessed to false
+  LangService.getNextWord()
+    .then(res => {
+      //console.log(res)
+      this.setState({word: res})
+      this.setState({guessed: false})
+  })
+  .catch(this.context.setError)
 }
 
   render() {
-    const {word} = this.state
+    const {word, guessed} = this.state
     return (
       <>
     <section className='next-word-card'>
@@ -88,7 +101,7 @@ fetch(`${config.API_ENDPOINT}/language/guess`,{
     <section className="displayScore">
     <p>{}</p>
       </section>
-    <Results word={this.state.word}/>
+      {guessed && <Results answer={this.state.answer} currentWord={this.state.word} guess={this.state.guess} handleNextWord={this.handleNextWord}/>}
       </>
     );
   }
