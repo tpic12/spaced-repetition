@@ -1,0 +1,46 @@
+.spanimal-header {
+  background-color: #F55148;
+  margin-top: 0;
+  padding: 10px;
+}
+
+.spanimal-header h1 a{
+color: black;
+}
+
+.spanimal-header h1 a:hover {
+color: #F55148;
+}
+
+
+nav a {
+    color: #F55148; 
+}
+
+nav a:hover {
+    color: white; 
+}
+
+
+.header-info {
+  background-color: #F6E796;
+  border-radius: 5px;
+  width: 50%;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.logout-link {
+  font-size: 14px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100px;
+  padding: 5px;
+  margin: auto;
+  background-color: #F55148;
+  border-radius: 5px;
+}
+
+.logout-link a {
+  color: white;
+}

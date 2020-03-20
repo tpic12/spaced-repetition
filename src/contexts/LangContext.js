@@ -41,7 +41,7 @@ export class LangProvider extends Component {
   }
 
   setWords = words => {
-    console.log('setting words', words.length)
+    //console.log('setting words', words.length)
     this.setState({ words })
   }
 

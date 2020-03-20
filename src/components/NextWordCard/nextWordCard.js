@@ -28,7 +28,7 @@ class nextWordCard extends Component {
 
   handleSubmitAnswer = event=>{
 event.preventDefault();
-const guess= event.target.answer.value
+const guess = event.target.answer.value
 this.setState({
   guess
 })
@@ -51,7 +51,6 @@ fetch(`${config.API_ENDPOINT}/language/guess`,{
     answer:data,
     guessed: true
   })
-
 })
  // console.log("is correct?",data))
 
@@ -83,7 +82,7 @@ handleNextWord = (event) => {
       <>
     <section className='next-word-card'>
       <h2>Translate the word:</h2>
-      <span>{word.nextWord}</span>
+      <span className='word-to-guess'>{word.nextWord}</span>
       
       <form className="submit-answer" onSubmit={this.handleSubmitAnswer}>
 
@@ -98,9 +97,6 @@ handleNextWord = (event) => {
       <p>You have answered this word correctly {word.wordCorrectCount} times.</p>
       <p>You have answered this word incorrectly {word.wordIncorrectCount} times.</p>
     </section>
-    <section className="displayScore">
-    <p>{}</p>
-      </section>
       {guessed && <Results answer={this.state.answer} currentWord={this.state.word} guess={this.state.guess} handleNextWord={this.handleNextWord}/>}
       </>
     );

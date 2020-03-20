@@ -15,6 +15,7 @@ class Dashboard extends Component {
   }
 
   componentDidMount = () => {
+    document.title = 'Dashboard - Spanimal'
     LangService.getLang()
       .then(res => {
         //console.log(res.language)
@@ -29,30 +30,27 @@ class Dashboard extends Component {
 
   renderCard() {
     const {words=[]} = this.context
-    // console.log(words[0].original)
     return words.map(word =>
-      <li><Card key={word.id} word={word} /></li>
+      <li key={word.id} ><Card word={word} /></li>
     )
   }
 
   render() {
     const {loaded} = this.state
     const {lang} = this.context
-    console.log(loaded)
     return (
       <>
       <section className='header'>
-        <h2>{lang.name}</h2>
+        <h2 className='lang-name' >{lang.name}</h2>
         <p>Total correct answers: {lang.total_score}</p>
       </section>
       <h3>Words to practice</h3>
       <ul className='card-list'>
         {loaded && this.renderCard()}
       </ul>
-      {/* <Button className="start-learning-button" type='button'>
-              Start Learning
-            </Button> */}
-      <Link to='/learn'>Start practicing</Link>
+      <div className='start-link'>
+        <Link to='/learn'>Start practicing</Link>
+      </div>
     </>
     );
   }

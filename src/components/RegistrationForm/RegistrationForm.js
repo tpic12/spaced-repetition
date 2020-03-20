@@ -34,6 +34,7 @@ class RegistrationForm extends Component {
   }
 
   componentDidMount() {
+    document.title = 'Register - Spanimal'
     this.firstInput.current.focus()
   }
 
@@ -82,7 +83,7 @@ class RegistrationForm extends Component {
           <Button type='submit'>
             Sign up
           </Button>
-          {' '}
+          {' '}<br/>
           <Link to='/login'>Already have an account?</Link>
         </footer>
       </form>

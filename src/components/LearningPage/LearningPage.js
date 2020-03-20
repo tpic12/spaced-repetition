@@ -16,6 +16,7 @@ class LearningPage extends Component {
   }
 
   componentDidMount() {
+    document.title = 'Start Learning - Spanimal'
     LangService.getNextWord()
       .then(res => {
         //console.log(res)

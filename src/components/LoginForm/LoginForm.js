@@ -38,6 +38,7 @@ class LoginForm extends Component {
   }
 
   componentDidMount() {
+    document.title = 'Login - Spanimal'
     this.firstInput.current.focus()
   }
 
