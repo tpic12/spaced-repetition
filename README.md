@@ -15,9 +15,6 @@ https://spanimal.now.sh/
 - CSS 3
 - Cypress
 - JWT
-- Node
-- Express
-- PostgreSQL
 
 ## Github for API
 https://github.com/tpic12/spaced-repetition-api
