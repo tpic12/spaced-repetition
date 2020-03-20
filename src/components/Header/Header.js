@@ -44,7 +44,7 @@ class Header extends Component {
       <div className='header-info'>
         <h1>
           <Link to='/'>
-            Spanimal
+            Spanimals
           </Link>
         </h1>
         {TokenService.hasAuthToken()
