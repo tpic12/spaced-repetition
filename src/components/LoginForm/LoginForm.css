@@ -15,7 +15,7 @@
 
     margin-top:20px;
     margin-bottom:20px;
-
+width:150px;
     height:30%;
     border: 1px solid #ddd;
     display: block;
@@ -25,7 +25,11 @@
     margin-right:auto;
     padding: 10px;
     text-align: left;
+<<<<<<< HEAD
     max-width: 175px;
+=======
+    
+>>>>>>> 21fea7772a16b8a38b65a1a15387252a47b535ac
     border-radius: 4px;
 }
 .login-form-button{
